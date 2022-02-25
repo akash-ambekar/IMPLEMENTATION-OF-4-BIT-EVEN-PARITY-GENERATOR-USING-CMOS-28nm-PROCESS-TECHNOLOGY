@@ -77,18 +77,31 @@ As we can see here, the generated parity bit is just EX-OR operation of all bits
 * View Stop List   : hspice hspiceD
 ********************************************************************************
 .subckt exor a b gnd_1 out vdd
+
 xm11 net47 b vdd vdd p105 w=0.1u l=0.03u nf=1 m=1
+
 xm10 net43 a vdd vdd p105 w=0.1u l=0.03u nf=1 m=1
+
 xm3 out net47 net13 net13 p105 w=0.1u l=0.03u nf=1 m=1
+
 xm2 out b net9 net9 p105 w=0.1u l=0.03u nf=1 m=1
+
 xm1 net13 a vdd vdd p105 w=0.1u l=0.03u nf=1 m=1
+
 xm0 net9 net43 vdd vdd p105 w=0.1u l=0.03u nf=1 m=1
+
 xm9 net47 b gnd_1 gnd_1 n105 w=0.1u l=0.03u nf=1 m=1
+
 xm8 net43 a gnd_1 gnd_1 n105 w=0.1u l=0.03u nf=1 m=1
+
 xm7 net29 net47 gnd_1 gnd_1 n105 w=0.1u l=0.03u nf=1 m=1
+
 xm6 net25 b gnd_1 gnd_1 n105 w=0.1u l=0.03u nf=1 m=1
+
 xm5 out net43 net29 net29 n105 w=0.1u l=0.03u nf=1 m=1
+
 xm4 out a net25 net25 n105 w=0.1u l=0.03u nf=1 m=1
+
 .ends exor
 
 ********************************************************************************
@@ -99,20 +112,31 @@ xm4 out a net25 net25 n105 w=0.1u l=0.03u nf=1 m=1
 * View Stop List   : hspice hspiceD
 ********************************************************************************
 xi2 net14 net15 gnd! net28 net12 exor
+
 xi1 net22 net20 gnd! net15 net12 exor
+
 xi0 net26 net24 gnd! net14 net12 exor
+
 v4 net12 gnd! dc=1.8
+
 v8 net26 gnd! dc=0 pulse ( 0 1.8 0 0.1n 0.1n 8n 16n )
+
 v7 net24 gnd! dc=0 pulse ( 0 1.8 0 0.1n 0.1n 13.5n 27n )
+
 v6 net22 gnd! dc=0 pulse ( 0 1.8 0 0.1n 0.1n 5.5n 11n )
+
 v5 net20 gnd! dc=0 pulse ( 0 1.8 0 0.1n 0.1n 18.5n 37n )
+
 r10 net28 gnd! r=1k
 
 .tran '1n' '100n' name=tran
 
 .option primesim_remove_probe_prefix = 0
+
 .probe v(*) i(*) level=1
+
 .probe tran v(net20) v(net22) v(net24) v(net26) v(net28)
+
 
 .temp 25
 
@@ -124,17 +148,25 @@ r10 net28 gnd! r=1k
 
 # Author
 •	Akash Ambekar
+
 Final Year B.Tech. (Electronics Engineering) 
+
 KIT's College of Engineering, Kolhapur, Maharashtra, India
 
 # Acknowledgements
 •	Mr.Kunal Ghosh (Co-Founder, VLSI System Design Corp. Pvt. Ltd.)
+
 •	Mr.Chinmaya Panda (IIT Hydrabad)
+
 •	Synopsys India
+
 •	Cloud Based Analog IC Design Hackathon'
+
 •	Sameer Durgoji, NIT Karnataka
 
 # References
 [1] Neil H. E. Weste, Kamran Eshraghian. ‘PRINCIPLES OF CMOS VLSI DESIGN A Systems Perspective’
+
 [2] Rabaey Jan M, ‘Digital Integrated Circuits A Design Perspective (2nd Ed)
+
 [3] R. JACOB BAKER, ‘CMOS Circuit Design, Layout, and Simulation’ 
